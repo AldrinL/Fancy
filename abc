@@ -1,0 +1,11 @@
+# rep = opener.open(link)
+            # soup = BeautifulSoup(rep.read(), "html.parser")
+            # title=soup.find("h1", class_="article_title ")
+            # price = title.find('span').text
+            # title = title.text
+            # link = soup.find("div", class_="buy").a.get('href')
+            # worthy_num=soup.find('span',id="rating_worthy_num").text.strip()
+            # unworthy_num=soup.find('span',id="rating_unworthy_num").text.strip()
+            # collected = soup.find('a',class_='fav').em.text
+            # imglink = soup.find('a',class_="pic-Box").img.get('src')
+            # brief = str(soup.find('div',class_="inner-block").p) + str(soup.find('div',class_="baoliao-block").p) 
