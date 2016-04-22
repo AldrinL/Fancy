@@ -2,9 +2,12 @@ import urllib.request
 import http.cookiejar
 from bs4 import BeautifulSoup
 import re
+from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
+from pymongo import *
 
-
-
+app = Flask(__name__)
+Bootstrap(app)
 
 def get_opener(head):
     # deal with the Cookies
@@ -17,6 +20,7 @@ def get_opener(head):
         header.append(elem)
     opener.addheaders = header
     return opener
+
 def get_links():
     head = {
             'Connection': 'Keep-Alive',
@@ -34,7 +38,7 @@ def get_links():
         if link and re.search("http://www.smzdm.com/p/\d{7}/$", link):
             links.add(link)
     return links
-    
+
 def get_info(links):
     head = {
             'Connection': 'Keep-Alive',
@@ -45,11 +49,12 @@ def get_info(links):
     i=0
     info = {}
     opener = get_opener(head)
+    itemlist= []
     for link in links:
         rep = opener.open(link)
         soup = BeautifulSoup(rep.read(), "html.parser")
         title=soup.find("h1", class_="article_title ")
-        if title and soup.find("div", class_="buy"):       
+        if title and soup.find("div", class_="buy"):
             info['price'] = title.find('span').text
             info['title'] = title.text
             info['buylink'] = soup.find("div", class_="buy").a.get('href')
@@ -64,6 +69,22 @@ def get_info(links):
                 info['brief'] += str(soup.find('div',class_="inner-block").p)
             if soup.find('div',class_="baoliao-block"):
                 info['brief'] += str(soup.find('div',class_="baoliao-block").p)
-            i+=1
-            print(info)
-    print(i)
+        item = {'link' : link, 'info': info}
+        itemlist.append(item)
+    return itemlist
+
+@app.before_first_request
+def update():
+    client = MongoClient()
+    db = client.test
+    item_collection = db.item
+    itemlist = get_info(get_links())
+    item_collection.insert_many(itemlist)
+
+@app.route('/')
+def index():
+    info=get_info(['http://www.smzdm.com/p/6099657/'])
+    return render_template('index.html', info = info)
+
+if __name__ == '__main__':
+    app.run(debug=True,host='0.0.0.0', port = 3000)
