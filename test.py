@@ -79,7 +79,7 @@ def update():
     db = client.test
     item_collection = db.item
     itemlist = get_info(get_links())
-    item_collection.insert_many(itemlist)
+    item_collection.insert(itemlist)
 
 @app.route('/')
 def index():
