@@ -82,21 +82,26 @@
 {% block content %}
 <div class="container-fluid text-center">
 <div class="row">
-<div class="jumbotron col-xs-6" style="width: 400px;">
+  {% for item in items %}
+  <div class=" col-xs-12 col-sm-6 col-md-4" >
+<div class="jumbotron col-xs-4" style="width: 330px;">
 <img src="{{url_for('.static', filename='zdm.jpg')}}" width="250px" height="250px"  class="img-circle img-thumbnail center-block" >
   <div class="panel panel-success">
-  <div class="panel-heading ">{{ info['title'] }}</div>
+  <div class="panel-heading ">{{ item['info']['title'] }}</div>
   <div class="panel-body ">
-    {{ info['brief'] |safe }}
+    {{ item['info']['brief'] |safe }}
     <p>
-      <a href="http://www.smzdm.com/p/6086694/" target="_blank" class="btn btn-success btn-lg">zdm链接</a>
-      <a href="{{ info['buylink'] }} " target="_blank" class="btn btn-raised btn-success">直达链接</a>
+      <a href="{{ item['link'] }}" target="_blank" class="btn btn-success btn-lg">zdm链接</a>
+      <a href="{{ item['info']['buylink'] }} " target="_blank" class="btn btn-raised btn-success">直达链接</a>
     </p>
   </div>
 </div>
 </div>
-
-<div class="jumbotron col-xs-6" style="width: 400px;">
+</div>
+{% endfor %}
+  
+<div class=" col-xs-12 col-sm-6 col-md-4">
+<div class="jumbotron" style="width: 330px;">
 <img src="{{url_for('.static', filename='sm.jpg')}}" width="250px" height="250px"  class="img-circle img-thumbnail center-block" >
   <div class="panel panel-warning">
   <div class="panel-heading ">LG 25UM58-P 25英寸 21:9 IPS显示器999元包邮（赠鼠标垫，下单立减，1199-200）</div>
@@ -120,6 +125,119 @@
   </div>
 </div>
 </div>
+  </div>
+
+
+  <div class=" col-xs-12 col-sm-6 col-md-4">
+<div class="jumbotron" style="width: 330px;">
+<img src="{{url_for('.static', filename='sm.jpg')}}" width="250px" height="250px"  class="img-circle img-thumbnail center-block" >
+  <div class="panel panel-warning">
+  <div class="panel-heading ">LG 25UM58-P 25英寸 21:9 IPS显示器999元包邮（赠鼠标垫，下单立减，1199-200）</div>
+  <div class="panel-body ">
+    老公牌带鱼屏好价再来！京东目前售价1199元，参加满999减200活动后下单实付999元到手，再到入手好价。带鱼屏无论是日常办公或游戏炒股都有非常不错的体验，再也不用担心一块屏幕放不下多个窗口了！
+
+<p>1199-200，想撸的快下手吧</p>
+
+    <p>
+      <a href="http://www.smzdm.com/p/6086677/" target="_blank" class="btn btn-warning btn-lg">zdm链接</a>
+      <a href="http://item.jd.com/2299309.html" target="_blank" class="btn btn-raised btn-warning">直达链接</a>
+    </p>
+      <div class="btn-group">
+              <a href="http://item.jd.com/2299309.html" class="btn btn-raised btn-warning">直达链接</a>
+              <a href="bootstrap-elements.html" data-target="#" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://www.smzdm.com/p/6086677/" target="_blank" class="btn btn-warning btn-lg">zdm链接</a></li>
+              </ul>
+            </div>
+
+  </div>
+</div>
+</div>
+  </div>
+
+  <div class=" col-xs-12 col-sm-6 col-md-4">
+<div class="jumbotron" style="width: 330px;">
+<img src="{{url_for('.static', filename='sm.jpg')}}" width="250px" height="250px"  class="img-circle img-thumbnail center-block" >
+  <div class="panel panel-warning">
+  <div class="panel-heading ">LG 25UM58-P 25英寸 21:9 IPS显示器999元包邮（赠鼠标垫，下单立减，1199-200）</div>
+  <div class="panel-body ">
+    老公牌带鱼屏好价再来！京东目前售价1199元，参加满999减200活动后下单实付999元到手，再到入手好价。带鱼屏无论是日常办公或游戏炒股都有非常不错的体验，再也不用担心一块屏幕放不下多个窗口了！
+
+<p>1199-200，想撸的快下手吧</p>
+
+    <p>
+      <a href="http://www.smzdm.com/p/6086677/" target="_blank" class="btn btn-warning btn-lg">zdm链接</a>
+      <a href="http://item.jd.com/2299309.html" target="_blank" class="btn btn-raised btn-warning">直达链接</a>
+    </p>
+      <div class="btn-group">
+              <a href="http://item.jd.com/2299309.html" class="btn btn-raised btn-warning">直达链接</a>
+              <a href="bootstrap-elements.html" data-target="#" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://www.smzdm.com/p/6086677/" target="_blank" class="btn btn-warning btn-lg">zdm链接</a></li>
+              </ul>
+            </div>
+
+  </div>
+</div>
+</div>
+  </div>
+
+  <div class=" col-xs-12 col-sm-6 col-md-4">
+<div class="jumbotron" style="width: 330px;">
+<img src="{{url_for('.static', filename='sm.jpg')}}" width="250px" height="250px"  class="img-circle img-thumbnail center-block" >
+  <div class="panel panel-warning">
+  <div class="panel-heading ">LG 25UM58-P 25英寸 21:9 IPS显示器999元包邮（赠鼠标垫，下单立减，1199-200）</div>
+  <div class="panel-body ">
+    老公牌带鱼屏好价再来！京东目前售价1199元，参加满999减200活动后下单实付999元到手，再到入手好价。带鱼屏无论是日常办公或游戏炒股都有非常不错的体验，再也不用担心一块屏幕放不下多个窗口了！
+
+<p>1199-200，想撸的快下手吧</p>
+
+    <p>
+      <a href="http://www.smzdm.com/p/6086677/" target="_blank" class="btn btn-warning btn-lg">zdm链接</a>
+      <a href="http://item.jd.com/2299309.html" target="_blank" class="btn btn-raised btn-warning">直达链接</a>
+    </p>
+      <div class="btn-group">
+              <a href="http://item.jd.com/2299309.html" class="btn btn-raised btn-warning">直达链接</a>
+              <a href="bootstrap-elements.html" data-target="#" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://www.smzdm.com/p/6086677/" target="_blank" class="btn btn-warning btn-lg">zdm链接</a></li>
+              </ul>
+            </div>
+
+  </div>
+</div>
+</div>
+  </div>
+
+  <div class=" col-xs-12 col-sm-6 col-md-4">
+<div class="jumbotron" style="width: 330px;">
+<img src="{{url_for('.static', filename='sm.jpg')}}" width="250px" height="250px"  class="img-circle img-thumbnail center-block" >
+  <div class="panel panel-warning">
+  <div class="panel-heading ">LG 25UM58-P 25英寸 21:9 IPS显示器999元包邮（赠鼠标垫，下单立减，1199-200）</div>
+  <div class="panel-body ">
+    老公牌带鱼屏好价再来！京东目前售价1199元，参加满999减200活动后下单实付999元到手，再到入手好价。带鱼屏无论是日常办公或游戏炒股都有非常不错的体验，再也不用担心一块屏幕放不下多个窗口了！
+
+<p>1199-200，想撸的快下手吧</p>
+
+    <p>
+      <a href="http://www.smzdm.com/p/6086677/" target="_blank" class="btn btn-warning btn-lg">zdm链接</a>
+      <a href="http://item.jd.com/2299309.html" target="_blank" class="btn btn-raised btn-warning">直达链接</a>
+    </p>
+      <div class="btn-group">
+              <a href="http://item.jd.com/2299309.html" class="btn btn-raised btn-warning">直达链接</a>
+              <a href="bootstrap-elements.html" data-target="#" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://www.smzdm.com/p/6086677/" target="_blank" class="btn btn-warning btn-lg">zdm链接</a></li>
+              </ul>
+            </div>
+
+  </div>
+</div>
+</div>
+  </div>
+
+
+
 
 </div>
 </div>

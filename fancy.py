@@ -92,8 +92,6 @@ def index():
     client = MongoClient()
     db = client.test
     item_collection = db.item
-#     items = []
-#     for item in
     return render_template('index.html', items = item_collection.find())
 
 if __name__ == '__main__':
