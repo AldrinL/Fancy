@@ -78,13 +78,13 @@ def get_info(links):
         print(i, 'done,',len(links) - i ,'remaining')
     return itemlist
 
-# @app.before_first_request
-# def update():
-#     client = MongoClient()
-#     db = client.test
-#     item_collection = db.item
-#     itemlist = get_info(get_links())
-#     item_collection.insert_many(itemlist)
+@app.before_first_request
+def update():
+    client = MongoClient()
+    db = client.test
+    item_collection = db.item
+    itemlist = get_info(get_links())
+    item_collection.insert_many(itemlist)
 
 @app.route('/')
 def index():
@@ -92,7 +92,8 @@ def index():
     client = MongoClient()
     db = client.test
     item_collection = db.item
-    return render_template('index.html', items = item_collection.find())
+    items = item_collection.find()
+    return render_template('index.html', items = items)
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0', port = 3000)
