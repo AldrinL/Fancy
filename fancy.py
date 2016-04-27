@@ -80,7 +80,7 @@ def get_info(links):
 
 @app.before_first_request
 def update():
-    client = MongoClient()
+    client = MongoClient('mongodb://uPvyEVzH4jIWGhcn:pak0fPbeNsxdvH12D@10.10.72.139:27017/')
     db = client.test
     item_collection = db.item
     itemlist = get_info(get_links())
@@ -89,7 +89,7 @@ def update():
 @app.route('/')
 def index():
 #     info=[{'info': {'worthrate': 0.5641025641025641, 'brief': '<p itemprop="description"><strong>反季囤起来~</strong><a href="http://www.smzdm.com/gourl/CE4B87CE7F130C46/AA_HT_57" itemprop="description" onclick="gtmAddToCart({\'name\':\'Phenix Cashmere 男士纯羊绒围巾\',\'id\':\'6099657\' , \'price\':\'129\',\'brand\':\'Phenix Cashmere\' ,\'mall\':\'美国亚马逊\', \'category\':\'服饰鞋包/服装配饰/围巾/无\',\'metric1\':\'129\',\'dimension10\':\'amazon.com\',\'dimension9\':\'haitao\',\'dimension11\':\'4阶价格\',\'dimension12\':\'美国亚马逊\',\'dimension20\':\'无\'})" rel="nofollow" target="_blank">美国亚马逊</a>目前此款羊绒围巾黑色特价至19.78美元，支持3.3美元直邮中国，到手价格约150元，可以入手，适合反季囤货。</p>', 'unworthy_num': 34, 'price': '$19.78+$3.3直邮中国（约￥150）', 'imglink': 'http://y.zdmimg.com/201604/21/5718bd5684e7b.jpg_d250.jpg', 'collected': '85', 'title': '\n\n            Phenix Cashmere 男士纯羊绒围巾            \n\n$19.78+$3.3直邮中国（约￥150）\n', 'buylink': 'http://www.smzdm.com/gourl/CE4B87CE7F130C46/AA_HT_57', 'worthy_num': 44}, 'link': 'http://www.smzdm.com/p/6099657/'}]
-    client = MongoClient()
+    client = MongoClient('mongodb://uPvyEVzH4jIWGhcn:pak0fPbeNsxdvH12D@10.10.72.139:27017/')
     db = client.test
     item_collection = db.item
     items = item_collection.find()
