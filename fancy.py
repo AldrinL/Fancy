@@ -80,7 +80,8 @@ def get_info(links):
 
 @app.before_first_request
 def update():
-    client = MongoClient('mongodb://uPvyEVzH4jIWGhcn:pak0fPbeNsxdvH12D@10.10.72.139:27017/')
+    # client = MongoClient('mongodb://uPvyEVzH4jIWGhcn:pak0fPbeNsxdvH12D@10.10.72.139:27017/')
+    client = MongoClient()
     db = client.test
     item_collection = db.item
     itemlist = get_info(get_links())
@@ -88,7 +89,8 @@ def update():
 
 @app.route('/')
 def index():
-    client = MongoClient('mongodb://uPvyEVzH4jIWGhcn:pak0fPbeNsxdvH12D@10.10.72.139:27017/')
+    # client = MongoClient('mongodb://uPvyEVzH4jIWGhcn:pak0fPbeNsxdvH12D@10.10.72.139:27017/')
+    client = MongoClient()
     db = client.test
     item_collection = db.item
     items = item_collection.find()
