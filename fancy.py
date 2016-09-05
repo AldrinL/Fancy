@@ -76,6 +76,8 @@ def get_info(links):
             print(item, ' processed')
         i+=1
         print(i, 'done,',len(links) - i ,'remaining')
+        if i >= 20:
+            return itemlist
     print('信息收集完毕')
     return itemlist
 
