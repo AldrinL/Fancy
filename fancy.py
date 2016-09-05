@@ -85,7 +85,7 @@ def get_info(links):
 def update():
     client = MongoClient('mongodb://aldrin:yigepassword@ds019846.mlab.com:19846/fanci')
     # client = MongoClient()
-    db = client.test
+    db = client.fanci
     item_collection = db.item
     itemlist = get_info(get_links())
     item_collection.insert_many(itemlist)
