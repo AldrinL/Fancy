@@ -95,7 +95,7 @@ def update():
 def index():
     client = MongoClient('mongodb://aldrin:yigepassword@ds019846.mlab.com:19846/fanci')
     # client = MongoClient()
-    db = client.test
+    db = client.fanci
     item_collection = db.item
     items = item_collection.find()
     print('正从数据库取出信息')
