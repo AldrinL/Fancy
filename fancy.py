@@ -76,6 +76,7 @@ def get_info(links):
             print(item, ' processed')
         i+=1
         print(i, 'done,',len(links) - i ,'remaining')
+    print('信息收集完毕')
     return itemlist
 
 @app.before_first_request
@@ -86,6 +87,7 @@ def update():
     item_collection = db.item
     itemlist = get_info(get_links())
     item_collection.insert_many(itemlist)
+    print('信息已写入数据库')
 
 @app.route('/')
 def index():
@@ -94,6 +96,7 @@ def index():
     db = client.test
     item_collection = db.item
     items = item_collection.find()
+    print('正从数据库取出信息')
     return render_template('index.html', items = items)
 
 if __name__ == '__main__':
