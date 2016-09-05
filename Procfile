@@ -1,1 +1,1 @@
-web: gunicorn fancy:app
+web: gunicorn fancy:app -t 3000
