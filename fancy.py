@@ -1,7 +1,7 @@
 import urllib.request
 import http.cookiejar
 from bs4 import BeautifulSoup
-import re
+import re, os
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from pymongo import *
@@ -83,8 +83,7 @@ def get_info(links):
 
 @app.before_first_request
 def update():
-    client = MongoClient('mongodb://aldrin:yigepassword@ds019846.mlab.com:19846/fanci')
-    # client = MongoClient()
+    client = MongoClient(os.environ.get('DATABASE_URL'))
     db = client.fanci
     item_collection = db.item
     itemlist = get_info(get_links())
@@ -93,7 +92,7 @@ def update():
 
 @app.route('/')
 def index():
-    client = MongoClient('mongodb://aldrin:yigepassword@ds019846.mlab.com:19846/fanci')
+    client = MongoClient(os.environ.get('DATABASE_URL'))
     # client = MongoClient()
     db = client.fanci
     item_collection = db.item
