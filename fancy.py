@@ -86,9 +86,12 @@ def update():
     client = MongoClient(os.environ.get('DATABASE_URL'))
     db = client.fanci
     item_collection = db.item
-    itemlist = get_info(get_links())
-    item_collection.insert_many(itemlist)
-    print('信息已写入数据库')
+    if not item_collection.find_one():
+        itemlist = get_info(get_links())
+        item_collection.insert_many(itemlist)
+        print('信息已写入数据库')
+    else:
+        print('数据库已存在信息')
 
 @app.route('/')
 def index():
